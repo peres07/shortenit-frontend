@@ -38,8 +38,12 @@ export default function Shorten() {
         expires: 7,
       });
       messageApi.success("URL encurtada com sucesso!");
-    } catch {
-      messageApi.error("Por favor, insira uma URL válida!");
+    } catch (err) {
+      if (err.response?.status === 429) {
+        messageApi.error("Limite de requisições atingido. Tente novamente mais tarde.");
+      } else {
+        messageApi.error("Por favor, insira uma URL válida!");
+      }
     }
   };
 
@@ -74,7 +78,7 @@ export default function Shorten() {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
           />
-          <Button size="large" onClick={handleShorten}>
+          <Button size="large" color="default" variant="solid" onClick={handleShorten}>
             <span className="font-bold">Encurtar</span>
           </Button>
         </div>
