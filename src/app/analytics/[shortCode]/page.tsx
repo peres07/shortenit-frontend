@@ -8,6 +8,7 @@ import {
   LinkOutlined,
   FieldTimeOutlined,
   ThunderboltOutlined,
+  LoadingOutlined,
 } from "@ant-design/icons";
 
 interface AnalyticsData {
@@ -26,30 +27,39 @@ export default function AnalyticsShortCodePage({
 }) {
   const resolvedParams = use(params);
   const [data, setData] = useState<AnalyticsData | null>(null);
+  const [loading, setLoading] = useState(true);
   const [messageApi, contextHolder] = message.useMessage();
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const response = await api.get(
           `/u/analytics/${resolvedParams.shortCode}`
         );
         setData(response.data.data);
-      } catch (error) {
+      } catch {
         messageApi.error(
           "Não foi possível carregar os dados do código fornecido."
         );
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
-  }, [resolvedParams.shortCode]);
+  }, [messageApi, resolvedParams.shortCode]);
 
   return (
     <div>
       {contextHolder}
       <AnalyticsPage />
       <div className="md:w-1/2 md:px-0 px-4 mx-auto flex flex-col gap-6 mt-8">
-        {data && (
+        {loading ? (
+          <div className="h-64 flex flex-col items-center justify-center bg-gray-50 text-center p-6">
+            <LoadingOutlined className="text-5xl text-primary animate-spin mb-4" />
+            <p className="text-secondary font-bold">Carregando dados...</p>
+          </div>
+        ) : data ? (
           <>
             <h1 className="text-primary text-2xl font-bold">
               Analytics para{" "}
@@ -108,7 +118,9 @@ export default function AnalyticsShortCodePage({
               <Col xs={24} sm={12} md={8}>
                 <Card className="rounded-xl shadow-md">
                   <Statistic
-                    title={<span className="text-base">Última atualização</span>}
+                    title={
+                      <span className="text-base">Última atualização</span>
+                    }
                     value={new Date(data.updatedAt).toLocaleDateString()}
                     prefix={<FieldTimeOutlined />}
                     valueStyle={{ fontSize: "1rem" }}
@@ -117,6 +129,8 @@ export default function AnalyticsShortCodePage({
               </Col>
             </Row>
           </>
+        ) : (
+          <p className="text-center text-gray-500">Nenhum dado disponível.</p>
         )}
       </div>
     </div>

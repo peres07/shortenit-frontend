@@ -26,7 +26,7 @@ export default function RedirectPage() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-center p-6">
       <LoadingOutlined className="text-5xl text-blue-600 animate-spin mb-4" />
 
-      <h1 className="text-2xl font-bold text-gray-800 mb-2">
+      <h1 className="text-2xl font-bold text-primary mb-2">
         Redirecionando...
       </h1>
 
