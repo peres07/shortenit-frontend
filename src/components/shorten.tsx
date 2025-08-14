@@ -6,6 +6,7 @@ import { Button, Input, message, Select } from "antd";
 import RecentLinks from "./recent-links";
 import { ShortenedLink } from "@/types";
 import Cookies from "js-cookie";
+import { AxiosError } from "axios";
 
 export default function Shorten() {
   const [messageApi, contextHolder] = message.useMessage();
@@ -39,10 +40,16 @@ export default function Shorten() {
       });
       messageApi.success("URL encurtada com sucesso!");
     } catch (err) {
-      if (err.response?.status === 429) {
-        messageApi.error("Limite de requisições atingido. Tente novamente mais tarde.");
+      if (err instanceof AxiosError) {
+        if (err.response?.status === 429) {
+          messageApi.error(
+            "Limite de requisições atingido. Tente novamente mais tarde."
+          );
+        } else {
+          messageApi.error("Por favor, insira uma URL válida!");
+        }
       } else {
-        messageApi.error("Por favor, insira uma URL válida!");
+        messageApi.error("Ocorreu um erro inesperado.");
       }
     }
   };
@@ -78,7 +85,12 @@ export default function Shorten() {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
           />
-          <Button size="large" color="default" variant="solid" onClick={handleShorten}>
+          <Button
+            size="large"
+            color="default"
+            variant="solid"
+            onClick={handleShorten}
+          >
             <span className="font-bold">Encurtar</span>
           </Button>
         </div>
