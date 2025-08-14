@@ -7,14 +7,17 @@ import { useRouter } from "next/navigation";
 
 export default function AnalyticsPage() {
   const [url, setUrl] = useState("");
+  const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
   const router = useRouter();
 
   const handleAnalyze = () => {
+    setLoading(true);
     if (url.trim() !== "") {
       const link = `${window.location.origin}/analytics/${url}`;
       return router.push(link);
     }
+    setLoading(false);
     return messageApi.error("Por favor, adicione um código válido.");
   };
 
@@ -38,7 +41,7 @@ export default function AnalyticsPage() {
             onChange={(e) => setUrl(e.target.value)}
             required={true}
           />
-          <Button color="default" variant="solid" size="large" onClick={handleAnalyze}>
+          <Button color="default" variant="solid" size="large" onClick={handleAnalyze} disabled={loading}>
             Analisar
           </Button>
         </div>

@@ -13,6 +13,7 @@ export default function Shorten() {
   const [url, setUrl] = useState("");
   const [protocol, setProtocol] = useState("https://");
   const [links, setLinks] = useState<ShortenedLink[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const savedLinks = Cookies.get("shortenedLinks");
@@ -26,6 +27,8 @@ export default function Shorten() {
     }
 
     const fullUrl = protocol + url;
+    setLoading(true);
+    const hideLoading = messageApi.loading("Encurtando URL...", 0)
 
     try {
       const res = await api.post("/u/create", { originalUrl: fullUrl });
@@ -51,6 +54,9 @@ export default function Shorten() {
       } else {
         messageApi.error("Ocorreu um erro inesperado.");
       }
+    } finally {
+      hideLoading();
+      setLoading(false);
     }
   };
 
@@ -90,6 +96,7 @@ export default function Shorten() {
             color="default"
             variant="solid"
             onClick={handleShorten}
+            disabled={loading}
           >
             <span className="font-bold">Encurtar</span>
           </Button>
