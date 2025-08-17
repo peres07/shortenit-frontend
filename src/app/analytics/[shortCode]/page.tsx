@@ -21,9 +21,9 @@ interface AnalyticsData {
 export default async function AnalyticsShortCodePage({
   params,
 }: {
-  params: { shortCode: string };
+  params: Promise<{ shortCode: string }>;
 }) {
-  const { shortCode } = params;
+  const { shortCode } = await params;
 
   try {
     const res = await api.get(`/u/analytics/${shortCode}`);
