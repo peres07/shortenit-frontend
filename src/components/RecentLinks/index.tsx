@@ -6,14 +6,13 @@ import {
 } from "@ant-design/icons";
 import { Button, message, Table, Tooltip } from "antd";
 
-import type { ShortenedLink } from "../../types";
-
-interface Props {
-  links: ShortenedLink[];
+export function RecentLinks({
+  links,
+  onDelete,
+}: {
+  links: { shortCode: string; url: string }[];
   onDelete: (shortCode: string) => void;
-}
-
-export default function RecentLinks({ links, onDelete }: Props) {
+}) {
   const [messageApi, contextHolder] = message.useMessage();
 
   const handleOpen = (shortCode: string) => {

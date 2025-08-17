@@ -5,9 +5,9 @@ import { Button, Input, message, Select } from "antd";
 import { AxiosError } from "axios";
 import Cookies from "js-cookie";
 
-import RecentLinks from "@/components/recentLinks/RecentLinks";
+import { RecentLinks } from "@/components/RecentLinks";
 import { api } from "@/services/api";
-import { ShortenedLink } from "@/types";
+import { ShortenedLink } from "@/types/types";
 
 export default function Shorten() {
   const [messageApi, contextHolder] = message.useMessage();

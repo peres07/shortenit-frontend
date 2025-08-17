@@ -3,22 +3,14 @@ import {
   LinkOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
-import { Card, Col,Row, Statistic } from "antd";
+import { Card, Col, Row, Statistic } from "antd";
 import { headers } from "next/headers";
 
-import { CantLoading } from "@/components/analytics/CantLoad";
-import SearchCode from "@/components/analytics/SearchCode";
+import { SearchCode } from "@/components/analytics";
+import { CantLoading } from "@/components/analytics/CantLoad/CantLoad";
+import { AnalyticsData } from "@/types/types";
 
 import { api } from "../../../services/api";
-
-interface AnalyticsData {
-  id: number;
-  originalUrl: string;
-  shortCode: string;
-  hits: number;
-  createdAt: Date;
-  updatedAt: Date;
-}
 
 export default async function AnalyticsShortCodePage({
   params,

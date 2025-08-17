@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button, Input, message } from "antd";
 import { useRouter } from "next/navigation";
 
-export default function SearchCode() {
+export function SearchCode() {
   const [url, setUrl] = useState("");
   const [messageApi, contextHolder] = message.useMessage();
   const router = useRouter();
