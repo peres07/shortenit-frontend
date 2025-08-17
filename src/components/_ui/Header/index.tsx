@@ -1,5 +1,3 @@
-"use client";
-
 import { LinkOutlined } from "@ant-design/icons";
 import Link from "next/link";
 

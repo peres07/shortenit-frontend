@@ -1,10 +1,8 @@
-import { Header } from "@/components/header";
-import Shorten from "@/components/shorten";
+import Shorten from "@/components/shorten/Shorten";
 
 export default function Home() {
   return (
     <>
-      <Header />
       <Shorten />
     </>
   );

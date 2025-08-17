@@ -1,5 +1,3 @@
-"use client";
-
 import { Button, message, Table, Tooltip } from "antd";
 import {
   CopyOutlined,
@@ -7,7 +5,7 @@ import {
   ExportOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
-import type { ShortenedLink } from "../types";
+import type { ShortenedLink } from "../../types";
 
 interface Props {
   links: ShortenedLink[];

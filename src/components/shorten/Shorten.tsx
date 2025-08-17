@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { api } from "../services/api";
+import { api } from "../../services/api";
 import { Button, Input, message, Select } from "antd";
-import RecentLinks from "./recent-links";
+import RecentLinks from "../recentLinks/RecentLinks";
 import { ShortenedLink } from "@/types";
 import Cookies from "js-cookie";
 import { AxiosError } from "axios";
@@ -28,7 +28,6 @@ export default function Shorten() {
 
     const fullUrl = protocol + url;
     setLoading(true);
-    const hideLoading = messageApi.loading("Encurtando URL...", 0)
 
     try {
       const res = await api.post("/u/create", { originalUrl: fullUrl });
@@ -55,7 +54,6 @@ export default function Shorten() {
         messageApi.error("Ocorreu um erro inesperado.");
       }
     } finally {
-      hideLoading();
       setLoading(false);
     }
   };
@@ -96,7 +94,7 @@ export default function Shorten() {
             color="default"
             variant="solid"
             onClick={handleShorten}
-            disabled={loading}
+            loading={loading}
           >
             <span className="font-bold">Encurtar</span>
           </Button>
