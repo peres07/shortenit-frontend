@@ -2,7 +2,7 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
 
-import { Header } from "@/components/_ui/Header";
+import { Header } from "@/app/components/Header";
 
 import "@ant-design/v5-patch-for-react-19";
 

@@ -1,4 +1,4 @@
-import { ShortenForm } from "@/components/shorten/ShortenForm";
+import { ShortenForm } from "@/app/(shorten)/components/ShortenForm";
 
 export default function ShortenPage() {
   return (

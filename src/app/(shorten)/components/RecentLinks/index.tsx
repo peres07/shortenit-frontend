@@ -97,7 +97,7 @@ export function RecentLinks({
     <>
       {contextHolder}
       <Table
-        className="md:w-1/2 md:px-0 w-full px-4 mx-auto my-5"
+        className="md:px-0 w-full px-4 mx-auto my-5"
         bordered
         dataSource={dataSource}
         columns={columns}
