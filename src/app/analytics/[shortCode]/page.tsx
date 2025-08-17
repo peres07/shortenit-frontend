@@ -6,8 +6,8 @@ import {
 import { Card, Col, Row, Statistic } from "antd";
 import { headers } from "next/headers";
 
-import { SearchCode } from "@/app/analytics/components/SearchCode";
 import { CantLoading } from "@/app/analytics/components/CantLoad";
+import { SearchCode } from "@/app/analytics/components/SearchCode";
 import { AnalyticsData } from "@/types/types";
 
 import { api } from "../../../services/api";

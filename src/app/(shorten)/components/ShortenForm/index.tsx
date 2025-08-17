@@ -46,7 +46,7 @@ export function ShortenForm() {
       if (err instanceof AxiosError) {
         if (err.response?.status === 429) {
           messageApi.error(
-            "Limite de requisições atingido. Tente novamente mais tarde."
+            "Limite de requisições atingido. Tente novamente mais tarde.",
           );
         } else {
           messageApi.error("Por favor, insira uma URL válida!");
@@ -65,7 +65,7 @@ export function ShortenForm() {
     Cookies.set("shortenedLinks", JSON.stringify(filtered), { expires: 7 });
     messageApi.success("Link deletado do histórico com sucesso!");
   };
-  
+
   return (
     <>
       {contextHolder}

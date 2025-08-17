@@ -30,7 +30,7 @@ const eslintConfig = [
             // Imports com efeitos colaterais (ex: polyfills)
             ["^\\u0000"],
             // Imports de pastas acima (..)
-            ["^\\.\\.(?!/?$)", "^\\.\\./?$"], 
+            ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
             // Imports relativos
             ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
             // Imports de estilos

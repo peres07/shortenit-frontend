@@ -2,7 +2,11 @@ import { redirect } from "next/navigation";
 
 import { api } from "../../services/api";
 
-export default async function RedirectPage({params}: {params: Promise<{ shortCode: string }>}) {
+export default async function RedirectPage({
+  params,
+}: {
+  params: Promise<{ shortCode: string }>;
+}) {
   const { shortCode } = await params;
 
   try {

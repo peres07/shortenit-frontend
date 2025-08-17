@@ -14,11 +14,15 @@ export function Header() {
       <div className="flex md:gap-6 gap-4 flex-row">
         <Link href="/" className="">
           {" "}
-          <h1 className="text-sm py-4 text-secondary hover:text-primary transition-all">Home</h1>
+          <h1 className="text-sm py-4 text-secondary hover:text-primary transition-all">
+            Home
+          </h1>
         </Link>
         <Link href="/analytics">
           {" "}
-          <h1 className="text-sm py-4 text-secondary hover:text-primary transition-all">Analytics</h1>
+          <h1 className="text-sm py-4 text-secondary hover:text-primary transition-all">
+            Analytics
+          </h1>
         </Link>
       </div>
     </header>
