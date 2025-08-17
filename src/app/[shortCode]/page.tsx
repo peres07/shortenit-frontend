@@ -9,10 +9,12 @@ export default async function RedirectPage({
 }) {
   const { shortCode } = await params;
 
-  try {
-    const res = await api.get(`/u/${shortCode}`);
-    redirect(res.data.data);
-  } catch {
+  const res = await api.get(`/u/${shortCode}`);
+  const url = res.data.data;
+
+  if (url) {
+    redirect(url);
+  } else {
     redirect("/");
   }
 }
