@@ -1,13 +1,15 @@
-import { api } from "../../../services/api";
-import { Card, Statistic, Row, Col } from "antd";
 import {
-  LinkOutlined,
   FieldTimeOutlined,
+  LinkOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
+import { Card, Col,Row, Statistic } from "antd";
 import { headers } from "next/headers";
+
 import { CantLoading } from "@/components/analytics/CantLoad";
 import SearchCode from "@/components/analytics/SearchCode";
+
+import { api } from "../../../services/api";
 
 interface AnalyticsData {
   id: number;

@@ -1,9 +1,12 @@
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
-import "./globals.css";
-import "@ant-design/v5-patch-for-react-19";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
+
 import { Header } from "@/components/_ui/Header";
+
+import "@ant-design/v5-patch-for-react-19";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ShortenIt",

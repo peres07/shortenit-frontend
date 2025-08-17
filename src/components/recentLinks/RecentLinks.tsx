@@ -1,10 +1,11 @@
-import { Button, message, Table, Tooltip } from "antd";
 import {
   CopyOutlined,
   DeleteOutlined,
   ExportOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
+import { Button, message, Table, Tooltip } from "antd";
+
 import type { ShortenedLink } from "../../types";
 
 interface Props {

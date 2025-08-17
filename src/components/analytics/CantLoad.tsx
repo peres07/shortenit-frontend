@@ -1,7 +1,7 @@
 "use client";
 
-import { message } from "antd";
 import { useEffect } from "react";
+import { message } from "antd";
 
 export function CantLoading() {
   const [messageApi, contextHolder] = message.useMessage();

@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { api } from "@/services/api";
 import { Button, Input, message, Select } from "antd";
-import RecentLinks from "@/components/recentLinks/RecentLinks";
-import { ShortenedLink } from "@/types";
-import Cookies from "js-cookie";
 import { AxiosError } from "axios";
+import Cookies from "js-cookie";
+
+import RecentLinks from "@/components/recentLinks/RecentLinks";
+import { api } from "@/services/api";
+import { ShortenedLink } from "@/types";
 
 export default function Shorten() {
   const [messageApi, contextHolder] = message.useMessage();

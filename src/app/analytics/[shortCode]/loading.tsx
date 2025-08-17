@@ -1,5 +1,6 @@
-import SearchCode from "@/components/analytics/SearchCode";
 import { LoadingOutlined } from "@ant-design/icons";
+
+import SearchCode from "@/components/analytics/SearchCode";
 
 export default function Loading() {
   return (

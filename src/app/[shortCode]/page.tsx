@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+
 import { api } from "../../services/api";
 
 export default async function RedirectPage({params}: {params: Promise<{ shortCode: string }>}) {
